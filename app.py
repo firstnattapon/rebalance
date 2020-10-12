@@ -15,12 +15,10 @@ from pypfopt import expected_returns
 pd.set_option("display.precision", 6)
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.beta_set_page_config(
-  page_title="App",
+  page_title="rebalance",
   layout="wide",
   initial_sidebar_state="expanded")
 # sns.set_style("whitegrid")
-
-
 
 # exchange = ccxt.binance({'apiKey': ''   ,'secret':  ''  , 'enableRateLimit': True }) 
 # e = exchange.load_markets()
