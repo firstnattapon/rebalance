@@ -20,6 +20,12 @@ st.beta_set_page_config(
   initial_sidebar_state="expanded")
 # sns.set_style("whitegrid")
 
+asset_1 = st.sidebar.text_input('asset_1', 'ADA-PERP')
+asset_2 = st.sidebar.text_input('asset_2', 'BNB-PERP')
+asset_3 = st.sidebar.text_input('asset_3', 'LINK-PERP')
+asset_4 = st.sidebar.text_input('asset_4', 'BSV-PERP')
+asset_5 = st.sidebar.text_input('asset_5', 'OKB-PERP')
+
 # exchange = ccxt.binance({'apiKey': ''   ,'secret':  ''  , 'enableRateLimit': True }) 
 # e = exchange.load_markets()
 
