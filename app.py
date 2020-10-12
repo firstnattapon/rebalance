@@ -26,7 +26,7 @@ asset_3 = st.sidebar.text_input('asset_3', 'LINK-PERP')
 asset_4 = st.sidebar.text_input('asset_4', 'BSV-PERP')
 asset_5 = st.sidebar.text_input('asset_5', 'OKB-PERP')
 
-pair = ['asset_1' ,'asset_2' ,'asset_3' ,'asset_4' ,'asset_5']
+pair = [asset_1 ,asset_2 ,asset_3 ,asset_4 ,asset_5]
 
 data_ = pd.DataFrame()
 for i in pair :
