@@ -26,6 +26,32 @@ asset_3 = st.sidebar.text_input('asset_3', 'LINK-PERP')
 asset_4 = st.sidebar.text_input('asset_4', 'BSV-PERP')
 asset_5 = st.sidebar.text_input('asset_5', 'OKB-PERP')
 
+pair = ['asset_1' ,'asset_2' ,'asset_3' ,'asset_4' ,'asset_5']
+
+data_ = pd.DataFrame()
+for i in pair :
+    exchange = ccxt.ftx({'apiKey': 'ngR2rWcJjdZr-pRlcZjuhz3pAfFcWKSMqu2xVj6N','secret':  'OL_aQBcwMelSKmkZn57RkMzys21yyAZN9H6CzZ_3' ,'enableRateLimit': True }) 
+    timeframe = "4h" #@param ["1m", "5m", "15m", "30m", "1h", "4h", "1d"]
+    limit =  5000 #@param ["5000"] {type:"raw", allow-input: true}
+    ohlcv =  exchange.fetch_ohlcv(  i  , timeframe , limit=limit )
+    ohlcv = exchange.convert_ohlcv_to_trading_view(ohlcv)
+    df =  pd.DataFrame(ohlcv)
+    df.t = df.t.apply(lambda  x :  datetime.datetime.fromtimestamp(x , pytz.timezone('Asia/Bangkok') ))
+    df =  df.set_index(df['t']) ; df = df.drop(['t'] , axis= 1 )
+    dataset = df  ; dataset = dataset.dropna()
+    data_[i] = dataset.c
+
+data_.dropna(axis=1 ,inplace=True)
+returns = risk_models.returns_from_prices(data_ , log_returns=True)
+
+returns["sum"] = returns.sum(axis=1)
+returns["cum"] = returns['sum'].cumsum(axis=0)
+st.plot(returns.cum)
+# returns.cum.plot();
+
+
+
+
 # exchange = ccxt.binance({'apiKey': ''   ,'secret':  ''  , 'enableRateLimit': True }) 
 # e = exchange.load_markets()
 
