@@ -7,5 +7,5 @@ matplotlib
 seaborn
 numpy
 datetime
-pypfopt
+pyportfolioopt
 pytz
