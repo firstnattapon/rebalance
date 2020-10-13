@@ -22,6 +22,9 @@ st.beta_set_page_config(
 
 timeframe = st.sidebar.selectbox('timeframe',('1d' , '15m' ,'1h' , '4h'))
 limit =  st.sidebar.selectbox('limit',(180 , 270 , 365))
+shift_d   = st.sidebar.number_input('shift_d', 1)
+n_changepoints =  st.sidebar.number_input('n_changepoints',min_value=0,value=25,step=1)
+
 asset_1 = st.sidebar.text_input('asset_1', 'ADA-PERP')
 asset_2 = st.sidebar.text_input('asset_2', 'BNB-PERP')
 asset_3 = st.sidebar.text_input('asset_3', 'LINK-PERP')
@@ -42,7 +45,6 @@ for i in pair :
 
 data_.dropna(axis=1 ,inplace=True)
 returns = risk_models.returns_from_prices(data_ , log_returns=True)
-
 returns["sum"] = returns.sum(axis=1)
 returns["cum"] = returns['sum'].cumsum(axis=0)
 plt.figure(figsize=(16,12))
@@ -50,7 +52,18 @@ plt.plot(returns.cum)
 st.pyplot()
 # returns.cum.plot();
 
+shift_d = shift_d
+Prop = returns
+Prop['ds'] = Prop['t'] 
+Prop['y'] =  Prop['cum'] 
+Prop = Prop.iloc[ : , -2:]
 
+m = Prophet( n_changepoints = n_changepoints )
+m.fit(Prop) 
+future = m.make_future_dataframe(periods=shift_d)
+forecast = m.predict(future)
+fig = add_changepoints_to_plot((m.plot(forecast)).gca(), m, forecast)
+st.pyplot() ; #st.write(Prop.tail(1))
 
 
 # exchange = ccxt.binance({'apiKey': ''   ,'secret':  ''  , 'enableRateLimit': True }) 
