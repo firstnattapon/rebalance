@@ -53,18 +53,20 @@ plt.plot(returns.cum)
 st.pyplot()
 # returns.cum.plot();
 
-shift_d = shift_d
-Prop = returns
-Prop['ds'] = Prop['t'] 
-Prop['y'] =  Prop['cum'] 
-Prop = Prop.iloc[ : , -2:]
+st.dataframe(returns)
 
-m = Prophet( n_changepoints = n_changepoints )
-m.fit(Prop) 
-future = m.make_future_dataframe(periods=shift_d)
-forecast = m.predict(future)
-fig = add_changepoints_to_plot((m.plot(forecast)).gca(), m, forecast)
-st.pyplot() ; #st.write(Prop.tail(1))
+# shift_d = shift_d
+# Prop = returns
+# Prop['ds'] = Prop['t'] 
+# Prop['y'] =  Prop['cum'] 
+# Prop = Prop.iloc[ : , -2:]
+
+# m = Prophet( n_changepoints = n_changepoints )
+# m.fit(Prop) 
+# future = m.make_future_dataframe(periods=shift_d)
+# forecast = m.predict(future)
+# fig = add_changepoints_to_plot((m.plot(forecast)).gca(), m, forecast)
+# st.pyplot() ; #st.write(Prop.tail(1))
 
 
 # exchange = ccxt.binance({'apiKey': ''   ,'secret':  ''  , 'enableRateLimit': True }) 
