@@ -16,7 +16,7 @@ pd.set_option("display.precision", 6)
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.beta_set_page_config(
   page_title="rebalance",
-  layout="wide",
+#   layout="wide",
   initial_sidebar_state="expanded")
 # sns.set_style("whitegrid")
 
