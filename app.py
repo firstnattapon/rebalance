@@ -20,15 +20,14 @@ st.beta_set_page_config(
   initial_sidebar_state="expanded")
 # sns.set_style("whitegrid")
 
+timeframe = st.sidebar.selectbox('timeframe',('1d' , '15m' ,'1h' , '4h'))
+limit =  st.sidebar.selectbox('limit',(180 , 270 , 365))
 asset_1 = st.sidebar.text_input('asset_1', 'ADA-PERP')
 asset_2 = st.sidebar.text_input('asset_2', 'BNB-PERP')
 asset_3 = st.sidebar.text_input('asset_3', 'LINK-PERP')
 asset_4 = st.sidebar.text_input('asset_4', 'BSV-PERP')
 asset_5 = st.sidebar.text_input('asset_5', 'OKB-PERP')
-
 pair = [asset_1 ,asset_2 ,asset_3 ,asset_4 ,asset_5]
-timeframe = st.sidebar.selectbox('coin',('1d' , '15m' ,'1h' , '4h'))
-limit =  st.sidebar.selectbox('limit',(180 , 270 , 365))
 
 data_ = pd.DataFrame()
 for i in pair :
