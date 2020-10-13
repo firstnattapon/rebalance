@@ -45,6 +45,7 @@ for i in pair :
 
 data_.dropna(axis=1 ,inplace=True)
 returns = risk_models.returns_from_prices(data_ , log_returns=True)
+returns['t'] = df.t
 returns["sum"] = returns.sum(axis=1)
 returns["cum"] = returns['sum'].cumsum(axis=0)
 plt.figure(figsize=(16,12))
@@ -178,4 +179,101 @@ st.pyplot() ; #st.write(Prop.tail(1))
 #   col4.text("365")
 #   _ = D() 
  
+  
+# 'ALTBULL/USD',#0
+# 'BCHBULL/USD',#0
+# 'BSVBULL/USD',#0
+# 'EOSBULL/USD',#0
+# 'ETCBULL/USD',#0
+# 'LTCBULL/USD',#0
+# 'MIDBULL/USD',#0
+# 'OKBBULL/USD',#0
+# 'TRXBULL/USD',#0
+# 'XRPBULL/USD',#0
 
+# 'ALGOHEDGE/USD',#1
+# 'ALTHEDGE/USD',#1
+# 'BCHHEDGE/USD',#1
+# 'BNBHEDGE/USD',#1
+# 'EOSHEDGE/USD',#1
+# 'ETHHEDGE/USD',#1
+# 'HEDGE/USD',#1
+# 'HEDGESHIT/USD',#1
+# 'LINKHEDGE/USD',#1
+# 'LTCHEDGE/USD',#1
+# 'MIDHEDGE/USD',#1
+# 'TRXHEDGE/USD',#1
+# 'USDTBULL/USD',#1
+# 'XRPHEDGE/USD',#1
+
+# 'ADA-PERP',#2
+# 'ETH-PERP',#2
+# 'ETH/USD',#2
+# 'TRX-PERP',#2
+# 'LEOBULL/USD',#2
+
+# 'ALTBEAR/USD',#3
+# 'BEAR/USD',#3
+# 'BEARSHIT/USD',#3
+# 'BNBBEAR/USD',#3
+# 'BSVHEDGE/USD',#3
+# 'EOSBEAR/USD',#3
+# 'ETHBEAR/USD',#3
+# 'EXCHBEAR/USD',#3
+# 'HTBEAR/USD',#3
+# 'HTHEDGE/USD',#3
+# 'LTCBEAR/USD',#3
+# 'MIDBEAR/USD',#3
+# 'OKBHEDGE/USD',#3
+# 'TRXBEAR/USD',#3
+# 'XRPBEAR/USD',#3
+
+# 'ALT-PERP',#4
+# 'BNB-PERP',#4
+# 'DOGE-PERP',#4
+# 'MATIC-PERP',#4
+# 'MID-PERP',#4
+# 'SHIT-PERP',#4
+# 'XRP-PERP',#4
+
+# 'LEOBEAR/USD',#5
+# 'LEOHEDGE/USD',#5
+# 'USDTBEAR/USD',#5
+# 'USDTHEDGE/USD',#5
+
+# 'ALGO-PERP',#6
+# 'LINK-PERP',#6
+# 'USDT-PERP',#6
+# 'USDT/USD',#6
+# 'LINKBULL/USD',#6
+
+# 'BCH-PERP',#7
+# 'BSV-PERP',#7
+# 'EOS-PERP',#7
+# 'ETC-PERP',#7
+# 'LTC-PERP',#7
+# 'ALGOBULL/USD',#7
+# 'BNBBULL/USD',#7
+# 'BULL/USD',#7
+# 'BULLSHIT/USD',#7
+# 'DOGEBULL/USD',#7
+# 'ETHBULL/USD',#7
+# 'EXCHBULL/USD',#7
+# 'HTBULL/USD',#7
+
+# 'BTC-PERP',#8
+# 'BTC/USD',#8
+# 'EXCH-PERP',#8
+# 'FTT/BTC',#8
+# 'FTT/USD',#8
+# 'FTT/USDT',#8
+# 'HT-PERP',#8
+# 'LEO-PERP',#8
+# 'OKB-PERP',#8
+
+# 'ALGOBEAR/USD',#9
+# 'BCHBEAR/USD',#9
+# 'BSVBEAR/USD',#9
+# 'ETCBEAR/USD',#9
+# 'LINKBEAR/USD',#9
+# 'OKBBEAR/USD',#9
