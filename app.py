@@ -31,8 +31,8 @@ pair = [asset_1 ,asset_2 ,asset_3 ,asset_4 ,asset_5]
 data_ = pd.DataFrame()
 for i in pair :
     exchange = ccxt.ftx({'apiKey': 'ngR2rWcJjdZr-pRlcZjuhz3pAfFcWKSMqu2xVj6N','secret':  'OL_aQBcwMelSKmkZn57RkMzys21yyAZN9H6CzZ_3' ,'enableRateLimit': True }) 
-    timeframe = "4h" #@param ["1m", "5m", "15m", "30m", "1h", "4h", "1d"]
-    limit =  5000 #@param ["5000"] {type:"raw", allow-input: true}
+    timeframe = st.sidebar.selectbox('coin',('1d' , '15m' ,'1h' , '4h'))
+    limit =  st.sidebar.selectbox('limit',(180 , 270 , 365))
     ohlcv =  exchange.fetch_ohlcv(  i  , timeframe , limit=limit )
     ohlcv = exchange.convert_ohlcv_to_trading_view(ohlcv)
     df =  pd.DataFrame(ohlcv)
