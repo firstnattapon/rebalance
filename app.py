@@ -27,12 +27,12 @@ asset_4 = st.sidebar.text_input('asset_4', 'BSV-PERP')
 asset_5 = st.sidebar.text_input('asset_5', 'OKB-PERP')
 
 pair = [asset_1 ,asset_2 ,asset_3 ,asset_4 ,asset_5]
+timeframe = st.sidebar.selectbox('coin',('1d' , '15m' ,'1h' , '4h'))
+limit =  st.sidebar.selectbox('limit',(180 , 270 , 365))
 
 data_ = pd.DataFrame()
 for i in pair :
     exchange = ccxt.ftx({'apiKey': 'ngR2rWcJjdZr-pRlcZjuhz3pAfFcWKSMqu2xVj6N','secret':  'OL_aQBcwMelSKmkZn57RkMzys21yyAZN9H6CzZ_3' ,'enableRateLimit': True }) 
-    timeframe = st.sidebar.selectbox('coin',('1d' , '15m' ,'1h' , '4h'))
-    limit =  st.sidebar.selectbox('limit',(180 , 270 , 365))
     ohlcv =  exchange.fetch_ohlcv(  i  , timeframe , limit=limit )
     ohlcv = exchange.convert_ohlcv_to_trading_view(ohlcv)
     df =  pd.DataFrame(ohlcv)
