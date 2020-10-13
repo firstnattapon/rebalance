@@ -46,7 +46,7 @@ returns = risk_models.returns_from_prices(data_ , log_returns=True)
 
 returns["sum"] = returns.sum(axis=1)
 returns["cum"] = returns['sum'].cumsum(axis=0)
-plt.figure(figsize=(16,8))
+plt.figure(figsize=(16,12))
 plt.plot(returns.cum)
 st.pyplot()
 # returns.cum.plot();
