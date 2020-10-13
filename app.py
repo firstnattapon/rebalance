@@ -45,7 +45,6 @@ for i in pair :
 
 data_.dropna(axis=1 ,inplace=True)
 returns = risk_models.returns_from_prices(data_ , log_returns=True)
-returns['t'] = df.t
 returns["sum"] = returns.sum(axis=1)
 returns["cum"] = returns['sum'].cumsum(axis=0)
 plt.figure(figsize=(16,12))
