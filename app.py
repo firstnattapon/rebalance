@@ -38,7 +38,7 @@ for i in pair :
     ohlcv =  exchange.fetch_ohlcv(  i  , timeframe , limit=limit )
     ohlcv = exchange.convert_ohlcv_to_trading_view(ohlcv)
     df =  pd.DataFrame(ohlcv)
-    df.t = df.t.apply(lambda  x :  datetime.datetime.fromtimestamp(x , pytz.timezone('Asia/Bangkok') ))
+    df.t = df.t.apply(lambda  x :  datetime.datetime.fromtimestamp(x)) ; df = df.dropna()
     df =  df.set_index(df['t']) ; df = df.drop(['t'] , axis= 1 )
     dataset = df  ; dataset = dataset.dropna()
     data_[i] = dataset.c
