@@ -69,6 +69,11 @@ prices = returns.set_index('ds')
 prices = prices.y
 st.write(prices)
 
+peeks = prices.cummax()
+drowdown = (prices - peeks)/peeks
+plt.plot(drowdown)
+st.pyplot() 
+
 # 'ALTBULL/USD',#0
 # 'BCHBULL/USD',#0
 # 'BSVBULL/USD',#0
