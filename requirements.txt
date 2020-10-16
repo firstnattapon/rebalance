@@ -9,4 +9,3 @@ seaborn
 datetime
 pyportfolioopt
 pytz
-ffn
