@@ -11,6 +11,7 @@ import pytz
 import matplotlib.patches as mpatches 
 from pypfopt import HRPOpt, CovarianceShrinkage , plotting , risk_models , DiscreteAllocation
 from pypfopt import expected_returns
+import ffn
 
 pd.set_option("display.precision", 6)
 st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -64,6 +65,9 @@ future = m.make_future_dataframe(periods=shift_d)
 forecast = m.predict(future)
 fig = add_changepoints_to_plot((m.plot(forecast)).gca(), m, forecast)
 st.pyplot() 
+
+stats = returns.calc_stats()
+write(stats.display())
 
 
 # 'ALTBULL/USD',#0
