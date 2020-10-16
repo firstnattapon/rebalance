@@ -9,4 +9,4 @@ numpy
 datetime
 pyportfolioopt
 pytz
-ffn
+ffn == 0.3.4
