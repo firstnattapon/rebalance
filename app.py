@@ -67,7 +67,9 @@ fig = add_changepoints_to_plot((m.plot(forecast)).gca(), m, forecast)
 st.pyplot() 
 
 # stats = returns.calc_stats()
-st.write(returns)
+prices = returns.set_index('ds')
+prices = prices.y
+st.write(prices)
 
 
 # 'ALTBULL/USD',#0
