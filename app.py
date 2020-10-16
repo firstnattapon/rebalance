@@ -11,7 +11,7 @@ import pytz
 import matplotlib.patches as mpatches 
 from pypfopt import HRPOpt, CovarianceShrinkage , plotting , risk_models , DiscreteAllocation
 from pypfopt import expected_returns
-import ffn
+# import ffn
 
 pd.set_option("display.precision", 6)
 st.set_option('deprecation.showPyplotGlobalUse', False)
