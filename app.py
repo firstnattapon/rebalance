@@ -65,14 +65,15 @@ forecast = m.predict(future)
 fig = add_changepoints_to_plot((m.plot(forecast)).gca(), m, forecast)
 st.pyplot() 
 
-prices = returns.set_index('ds')
-prices = prices.y
-st.write(prices)
+# prices = returns.set_index('ds')
+# prices = prices.y
+# st.write(prices)
 
 peeks = prices.cummax()
 drowdown = (prices - peeks)/peeks
 plt.plot(drowdown)
 st.pyplot() 
+st.write(drowdown.min())
 
 # 'ALTBULL/USD',#0
 # 'BCHBULL/USD',#0
