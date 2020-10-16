@@ -5,7 +5,13 @@ plotly
 ccxt == 1.30.51
 matplotlib
 seaborn
-numpy
 datetime
 pyportfolioopt
 pytz
+decorator>=4
+numpy>=1.5
+pandas-datareader>=0.2
+tabulate>=0.7.5
+scikit-learn>=0.15
+scipy>=0.15
+future>=0.15
