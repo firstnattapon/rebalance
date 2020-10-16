@@ -71,6 +71,7 @@ st.write(prices)
 
 import ffn
 
+
 # 'ALTBULL/USD',#0
 # 'BCHBULL/USD',#0
 # 'BSVBULL/USD',#0
