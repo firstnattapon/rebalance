@@ -9,4 +9,4 @@ numpy
 datetime
 pyportfolioopt
 pytz
-ffn == 0.3.4
+https://files.pythonhosted.org/packages/b0/9f/0a16afc87d307140ecf3aa78df3985ee2b3fc67ee883ff53edada022a8aa/ffn-0.3.4.tar.gz
