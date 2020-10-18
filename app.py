@@ -42,6 +42,26 @@ for i in pair :
     df =  df.set_index(df['t']) ; df = df.drop(['t'] , axis= 1 )
     dataset = df  ; dataset = dataset.dropna()
     data_[i] = dataset.c
+    
+    
+data_.dropna(axis=1 ,inplace=True)
+returns = risk_models.returns_from_prices(data_ , log_returns=True)
+S = CovarianceShrinkage(data_ ,frequency=252).ledoit_wolf()
+hrp = HRPOpt(returns , cov_matrix=S)
+# weights = hrp.optimize()
+# hrp.portfolio_performance(verbose=True);
+
+weights = {
+pair[0] : 1 /len(pair),
+pair[1] : 1 /len(pair),
+pair[2] : 1 /len(pair),
+pair[3] : 1 /len(pair),
+pair[4] : 1 /len(pair),
+# pair[5] : 1 /len(pair)}
+
+hrp.set_weights(weights)
+st.write(hrp.portfolio_performance(verbose=True))
+    
 
 data_.dropna(axis=1 ,inplace=True)
 returns = risk_models.returns_from_prices(data_ , log_returns=True)
@@ -72,6 +92,12 @@ drowdown = (prices - peeks)/peeks
 plt.plot(drowdown)
 st.pyplot() 
 st.write(drowdown.min())
+
+
+
+
+
+
 
 # 'ALTBULL/USD',#0
 # 'BCHBULL/USD',#0
