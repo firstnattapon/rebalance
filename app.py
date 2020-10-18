@@ -51,14 +51,9 @@ S = CovarianceShrinkage(data_ ,frequency=365).ledoit_wolf()
 hrp = HRPOpt(returns , cov_matrix=S)
 # weights = hrp.optimize()
 # hrp.portfolio_performance(verbose=True);
-weights = {
-pair[0] : 1 /len(pair),
-pair[1] : 1 /len(pair),
-pair[2] : 1 /len(pair),
-pair[3] : 1 /len(pair),
-pair[4] : 1 /len(pair),
-# pair[5] : 1 /len(pair)
-}
+
+weights = {w:1 /len(pair) for w in pair}
+
 hrp.set_weights(weights)
 w = hrp.portfolio_performance(verbose=True,frequency=365)
 st.write("Expected annual return: {:.2f}%".format(w[0]*100))
