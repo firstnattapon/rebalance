@@ -57,10 +57,10 @@ hrp = HRPOpt(returns , cov_matrix=S)
 # weights = hrp.optimize()
 # hrp.portfolio_performance(verbose=True);
 
-weights = {w:1 /len(pair) for w in pair}
-
+weights = {w: 1/len(pair) for w in pair}
 hrp.set_weights(weights)
 w = hrp.portfolio_performance(verbose=True,frequency=365)
+
 st.write("Expected annual return: {:.2f}%".format(w[0]*100))
 st.write("Annual volatility: {:.2f}%".format(w[1]*100))
 st.write("Sharpe Ratio: {:.2f}".format(w[2]))
