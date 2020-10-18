@@ -7,5 +7,6 @@ ccxt == 1.30.51
 matplotlib
 seaborn
 datetime
+scikit-learn
 pyportfolioopt
 pytz
