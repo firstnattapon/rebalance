@@ -33,8 +33,10 @@ asset_4 = st.sidebar.text_input('asset_5', 'OKB-PERP')
 asset_5 = st.sidebar.text_input('asset_6', 'None')
 asset_6 = st.sidebar.text_input('asset_7', 'None')
 asset_7 = st.sidebar.text_input('asset_8', 'None')
+asset_8 = st.sidebar.text_input('asset_9', 'None')
+asset_9 = st.sidebar.text_input('asset_10', 'None')
 
-pair = [asset_0 ,asset_1 ,asset_2 ,asset_3 ,asset_4, asset_5, asset_6, asset_7]
+pair = [asset_0 ,asset_1 ,asset_2 ,asset_3 ,asset_4, asset_5, asset_6, asset_7, asset_8, asset_9]
 pair = [i for i in pair if i != 'None']
 
 data_ = pd.DataFrame()
