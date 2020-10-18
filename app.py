@@ -25,12 +25,12 @@ limit =  st.sidebar.selectbox('limit',(180 , 270 , 365))
 shift_d   = st.sidebar.number_input('shift_d', 1)
 n_changepoints =  st.sidebar.number_input('n_changepoints',min_value=0,value=25,step=1)
 
-asset_1 = st.sidebar.text_input('asset_1', 'ADA-PERP')
-asset_2 = st.sidebar.text_input('asset_2', 'BNB-PERP')
-asset_3 = st.sidebar.text_input('asset_3', 'LINK-PERP')
-asset_4 = st.sidebar.text_input('asset_4', 'BSV-PERP')
-asset_5 = st.sidebar.text_input('asset_5', 'OKB-PERP')
-pair = [asset_1 ,asset_2 ,asset_3 ,asset_4 ,asset_5]
+asset_0 = st.sidebar.text_input('asset_1', 'ADA-PERP')
+asset_1 = st.sidebar.text_input('asset_2', 'BNB-PERP')
+asset_2 = st.sidebar.text_input('asset_3', 'LINK-PERP')
+asset_3 = st.sidebar.text_input('asset_4', 'BSV-PERP')
+asset_4 = st.sidebar.text_input('asset_5', 'OKB-PERP')
+pair = [asset_0 ,asset_1 ,asset_2 ,asset_3 ,asset_4]
 
 data_ = pd.DataFrame()
 for i in pair :
@@ -55,10 +55,10 @@ pair[1] : 1 /len(pair),
 pair[2] : 1 /len(pair),
 pair[3] : 1 /len(pair),
 pair[4] : 1 /len(pair),
-# pair[5] : 1 /len(pair)}
+# pair[5] : 1 /len(pair)
+}
 hrp.set_weights(weights)
-w = hrp.portfolio_performance(verbose=True)
-st.write(w)
+st.write(hrp.portfolio_performance(verbose=True))
     
 returns = risk_models.returns_from_prices(data_ , log_returns=True)
 returns["sum"] = returns.sum(axis=1)
