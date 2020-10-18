@@ -21,7 +21,7 @@ st.beta_set_page_config(
 # sns.set_style("whitegrid")
 
 timeframe = st.sidebar.selectbox('timeframe',('1d' , '15m' ,'1h' , '4h'))
-limit =  st.sidebar.selectbox('limit',(180 , 90 , 270 , 365 , 5000))
+limit =  st.sidebar.selectbox('limit',(180 , 90 , 270 , 365 , 2500 , 5000))
 shift_d   = st.sidebar.number_input('shift_d', 1)
 n_changepoints =  st.sidebar.number_input('n_changepoints',min_value=0,value=25,step=1)
 
