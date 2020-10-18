@@ -45,7 +45,7 @@ for i in pair :
 data_.dropna(axis=1 ,inplace=True)
 
 returns = risk_models.returns_from_prices(data_ , log_returns=True)
-S = CovarianceShrinkage(data_ ,frequency=252).ledoit_wolf()
+S = CovarianceShrinkage(data_ ,frequency=365).ledoit_wolf()
 hrp = HRPOpt(returns , cov_matrix=S)
 # weights = hrp.optimize()
 # hrp.portfolio_performance(verbose=True);
@@ -58,10 +58,10 @@ pair[4] : 1 /len(pair),
 # pair[5] : 1 /len(pair)
 }
 hrp.set_weights(weights)
-w = hrp.portfolio_performance(verbose=True)
-st.write("Expected annual return:{:.2f}%".format(w[0]*100))
-st.write("Annual volatility:{:.2f}%".format(w[1]*100))
-st.write("Sharpe Ratio:{:.2f}".format(w[2]))
+w = hrp.portfolio_performance(verbose=True,frequency=365)
+st.write("Expected annual return: {:.2f}%".format(w[0]*100))
+st.write("Annual volatility: {:.2f}%".format(w[1]*100))
+st.write("Sharpe Ratio: {:.2f}".format(w[2]))
     
 returns = risk_models.returns_from_prices(data_ , log_returns=True)
 returns["sum"] = returns.sum(axis=1)
@@ -91,11 +91,6 @@ drowdown = (prices - peeks)/peeks
 plt.plot(drowdown)
 st.pyplot() 
 st.write(drowdown.min())
-
-# Expected annual return: 9.7%
-# Annual volatility: 30.3%
-# Sharpe Ratio: 0.26
-# (0.09747343153203271, 0.3028818647341143, 0.255787620695095)
 
 # 'ALTBULL/USD',#0
 # 'BCHBULL/USD',#0
