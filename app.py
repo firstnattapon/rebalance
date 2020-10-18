@@ -58,7 +58,8 @@ pair[4] : 1 /len(pair),
 # pair[5] : 1 /len(pair)
 }
 hrp.set_weights(weights)
-st.write(hrp.portfolio_performance(verbose=True))
+w = hrp.portfolio_performance(verbose=True)
+st.write("Expected annual return:{:.2f}%\n Annual volatility:{:.2f}%\n Sharpe Ratio:{:.2f}\n".format(w[0]*100 , w[1]*100 ,w[2]))
     
 returns = risk_models.returns_from_prices(data_ , log_returns=True)
 returns["sum"] = returns.sum(axis=1)
@@ -88,6 +89,13 @@ drowdown = (prices - peeks)/peeks
 plt.plot(drowdown)
 st.pyplot() 
 st.write(drowdown.min())
+
+
+
+# Expected annual return: 9.7%
+# Annual volatility: 30.3%
+# Sharpe Ratio: 0.26
+# (0.09747343153203271, 0.3028818647341143, 0.255787620695095)
 
 
 
