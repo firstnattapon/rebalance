@@ -21,7 +21,7 @@ st.beta_set_page_config(
 # sns.set_style("whitegrid")
 
 timeframe = st.sidebar.selectbox('timeframe',('1d' , '15m' ,'1h' , '4h'))
-limit =  st.sidebar.selectbox('limit',(180 , 90 , 270 , 365 , 2500 , 5000))
+limit =  st.sidebar.selectbox('limit',(180 , 90 , 270 , 365 , 1000 ,2500 , 5000))
 shift_d   = st.sidebar.number_input('shift_d', 1)
 n_changepoints =  st.sidebar.number_input('n_changepoints',min_value=0,value=25,step=1)
 
@@ -30,7 +30,9 @@ asset_1 = st.sidebar.text_input('asset_2', 'BNB-PERP')
 asset_2 = st.sidebar.text_input('asset_3', 'LINK-PERP')
 asset_3 = st.sidebar.text_input('asset_4', 'BSV-PERP')
 asset_4 = st.sidebar.text_input('asset_5', 'OKB-PERP')
-pair = [asset_0 ,asset_1 ,asset_2 ,asset_3 ,asset_4]
+asset_5 = st.sidebar.text_input('asset_5', None )
+pair = [asset_0 ,asset_1 ,asset_2 ,asset_3 ,asset_4, asset_5]
+pair = [i for i in pair if i != None]
 
 data_ = pd.DataFrame()
 for i in pair :
