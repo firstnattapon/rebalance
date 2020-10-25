@@ -28,7 +28,7 @@ n_changepoints =  st.sidebar.number_input('n_changepoints',min_value=0,value=25,
 asset_0 = st.sidebar.text_input('asset_1', 'LINK/USDT')
 asset_1 = st.sidebar.text_input('asset_2', 'ADA/USDT')
 asset_2 = st.sidebar.text_input('asset_3', 'ETH/USDT')
-asset_3 = st.sidebar.text_input('asset_4', 'DOGE/USDT')
+asset_3 = st.sidebar.text_input('asset_4', 'LTC/USDT')
 asset_4 = st.sidebar.text_input('asset_5', 'OMG/USDT')
 asset_5 = st.sidebar.text_input('asset_6', 'THETA/USDT')
 asset_6 = st.sidebar.text_input('asset_7', 'None')
