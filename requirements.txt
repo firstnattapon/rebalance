@@ -1,5 +1,5 @@
 numpy
-streamlit == 0.68.0
+streamlit == 1.30.0
 pandas == 1.0.5
 fbprophet
 plotly
